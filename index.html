@@ -4,33 +4,41 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- TODO: Add a page title -->
-   <title>Boston Parks, bike network, and neighborhoods</title>
+  <!-- Page title -->
+   <title>Boston parks, bike network, and neighborhoods</title>
+  
+  <!-- Load simple.css style sheet for basic HTML styling -->
+   <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
 
-  <!-- TODO: Add Leaflet CSS -->
+  <!-- Load Leaflet CSS -->
    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
      crossorigin=""/>
   
-  <!-- TODO: Add Leaflet JavaScript -->
+  <!-- Load Leaflet JavaScript -->
    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
      crossorigin=""></script>
   
-  <!-- TODO: Add your custom stylesheet -->
+  <!-- Load my custom stylesheet -->
    <link rel="stylesheet" href="css/styles.css">
 
-  <!-- TODO: Add your JavaScript file -->
+  <!-- Load my JavaScript file -->
    <script src="js/main.js"></script>  
 </head>
-<body>
-<p>Hi, nothing is here yet.</p>
-  <!-- TODO: Add a header for your page -->
 
-  <!-- TODO: Map container (Leaflet targets this div by ID) -->
+<body>
+  <header>
+    <h1>Boston parks, bike network, and neighborhoods</h1>
+    <p>Simple Leaflet map showing park features, bike infrustructure, and neighborhood boundaries in Boston.</p>
+  </header>
+
+  <!-- Map container -->
    <div id="map"></div>
     
-  <!-- TODO: Add a footer for your page -->
+  <footer>
+    <p>Data sources: <a href="https://gis.data.mass.gov/apps/massgis::city-of-boston-ma-gis-homepage/explore">City of Boston GIS hub</a>.</p>
+  </footer>
   
 </body>
 </html>
