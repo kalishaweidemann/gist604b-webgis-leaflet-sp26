@@ -33,7 +33,7 @@ function enforceDrawOrder() {
 
 
 // Load neighborhood polygon features
-fetch('data/boston_neighborhoods_polygons.json')
+fetch('data/boston_neighborhoods_polygons.geojson')
   .then(function(response) {
     return response.json();
   })
@@ -78,7 +78,7 @@ fetch('data/boston_neighborhoods_polygons.json')
 
 
 // Load bike network line features
-fetch('data/boston_bike_network_lines.json')
+fetch('data/boston_bike_network_lines.geojson')
   .then(function(response) {
     return response.json();
   })
@@ -110,7 +110,7 @@ fetch('data/boston_bike_network_lines.json')
 
 
 // Load park point features
-fetch('data/boston_park_features_points.json')
+fetch('data/boston_park_features_points.geojson')
   .then(function(response) {
     return response.json();
   })
