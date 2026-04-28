@@ -1,48 +1,131 @@
-/* Make the full page use the browser viewport */
-html,
-body {
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
   height: 100%;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+}
+
+/* Layout */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Header */
+header {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #ddd;
+  background: #fff;
+
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+  font-size: 1.4rem;
   margin: 0;
 }
 
-/* Override Simple.css max-width behavior */
-body {
-  max-width: none;
-  display: flex;
-  flex-direction: column;
+header p {
+  margin: 0.25rem 0 0 0;
+  font-size: 0.9rem;
+  color: #555;
 }
 
-/* Keep the header compact */
-header {
-  padding: 1rem;
-}
-
-/* Let the map area expand to fill remaining screen space */
+/* Main fills remaining space */
 main {
   flex: 1;
-  padding: 0;
+  display: flex;
 }
 
-/* Leaflet map fills the available main area */
+/* Map fills everything */
 #map {
-  height: 100%;
-  width: 100%;
-  border: none;
-  border-radius: 0;
+  flex: 1;
 }
 
-/* Optional: keep footer small */
+/* Floating legend panel */
+.legend {
+  background: rgba(255, 255, 255, 0.94);
+  padding: 0.75rem 0.85rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+  font-size: 0.8rem;
+  line-height: 1.4;
+  color: #222;
+}
+
+.legend h4 {
+  margin: 0 0 0.5rem 0;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.legend div {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin: 0.25rem 0;
+}
+
+.legend-box,
+.legend-line,
+.legend-circle {
+  flex: 0 0 auto;
+  display: inline-block;
+}
+
+.legend-box.neighborhoods {
+  width: 16px;
+  height: 12px;
+  border: 2px solid #C9A227;
+  background: rgba(233, 196, 106, 0.25);
+}
+
+.legend-line.bike {
+  width: 18px;
+  height: 0;
+  border-top: 3px solid #264653;
+}
+
+.legend-circle.parks {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  border: 2px solid #005F56;
+  background: #2A9D8F;
+}
+
+/* Layer controls */
+.leaflet-control-layers {
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+  font-size: 0.8rem;
+}
+
+/* Footer */
 footer {
-  padding: 0.5rem;
-  margin-top: 0;
+  font-size: 0.8rem;
+  padding: 0.5rem 1rem;
+  border-top: 1px solid #ddd;
+  background: #fff;
+  color: #555;
+  box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.08);
 }
 
-@media (max-width: 700px) {
-  header h1 {
-    font-size: 1.6rem;
-  }
+footer p {
+  margin: 0;
+}
 
-  header p {
-    font-size: 0.95rem;
-  }
+footer a {
+  color: #264653;
+  font-weight: 600;
 }
