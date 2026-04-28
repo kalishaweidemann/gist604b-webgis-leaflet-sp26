@@ -1,18 +1,23 @@
-// Create the Leaflet map and center it on Boston
-var map = L.map('map').setView([42.32, -71.06], 12);
+// Create Leaflet map and center on Boston
+var map = L.map('map', {
+  minZoom: 12
+}).setView([42.32, -71.06], 12);
 
-// Add an OpenStreetMap basemap
+
+// Add OpenStreetMap basemap
 var osmBasemap = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
   attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
   subdomains: 'abcd',
   maxZoom: 20
 }).addTo(map);
 
-// Add a scale bar to the lower-left corner
+
+// Add scale bar to the lower-left corner
 L.control.scale({
   imperial: true,
   metric: true
 }).addTo(map);
+
 
 // Create layer groups to organize datasets
 var neighborhoodsLayer = L.layerGroup().addTo(map);
@@ -20,14 +25,14 @@ var bikeLayer = L.layerGroup().addTo(map);
 var parksLayer = L.layerGroup().addTo(map);
 
 
-  // Load neighborhood polygon features
+// Load neighborhood polygon features
 fetch('data/boston_neighborhoods_polygons.json')
   .then(function(response) {
     return response.json();
   })
   .then(function(data) {
 
-    L.geoJSON(data, {
+    var neighborhoodsGeoJSON = L.geoJSON(data, {
 
       style: function(feature) {
         return {
@@ -49,10 +54,22 @@ fetch('data/boston_neighborhoods_polygons.json')
 
     }).addTo(neighborhoodsLayer);
 
+    var bostonBounds = neighborhoodsGeoJSON.getBounds();
+
+    map.fitBounds(bostonBounds, {
+      padding: [20, 20]
+    });
+
+    if (map.getZoom() < 12) {
+      map.setZoom(12);
+    }
+
+    map.setMaxBounds(bostonBounds.pad(0.45));
+
   });
 
 
-    // Load bike network line features
+// Load bike network line features
 fetch('data/boston_bike_network_lines.json')
   .then(function(response) {
     return response.json();
@@ -85,7 +102,7 @@ fetch('data/boston_bike_network_lines.json')
   });
 
 
-  // Load park point features
+// Load park point features
 fetch('data/boston_park_features_points.json')
   .then(function(response) {
     return response.json();
@@ -116,25 +133,24 @@ fetch('data/boston_park_features_points.json')
   });
 
 
-  // Create a simple legend control
+// Add legend
 var legend = L.control({ position: 'bottomright' });
 
 legend.onAdd = function(map) {
   var div = L.DomUtil.create('div', 'legend');
 
   div.innerHTML =
-    '<div><span class="legend-box neighborhoods"></span> Neighborhood boundaries</div>' +
+    '<div><span class="legend-box neighborhoods"></span> Neighborhood boundary</div>' +
     '<div><span class="legend-line bike"></span> Bike network</div>' +
-    '<div><span class="legend-circle parks"></span> Park features</div>';
+    '<div><span class="legend-circle parks"></span> Park feature</div>';
 
   return div;
 };
 
-// Add legend to the map
 legend.addTo(map);
 
 
-// Layer controls
+// Add collapsed layer controls
 var overlayMaps = {
   'Neighborhood boundaries': neighborhoodsLayer,
   'Bike network': bikeLayer,

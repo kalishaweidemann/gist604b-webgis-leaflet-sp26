@@ -1,3 +1,4 @@
+/* Global styles */
 * {
   box-sizing: border-box;
 }
@@ -39,18 +40,18 @@ header p {
   color: #555;
 }
 
-/* Main fills remaining space */
+/* Main */
 main {
   flex: 1;
   display: flex;
 }
 
-/* Map fills everything */
+/* Map */
 #map {
   flex: 1;
 }
 
-/* Floating legend panel */
+/* Legend */
 .legend {
   background: rgba(255, 255, 255, 0.94);
   padding: 0.75rem 0.85rem;
