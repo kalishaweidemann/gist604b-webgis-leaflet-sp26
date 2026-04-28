@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Page title -->
-   <title>Boston parks, bike network, and neighborhoods</title>
+   <title>Boston neighborhoods, bike network, and park features</title>
   
   <!-- Load simple.css style sheet for basic HTML styling -->
    <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
@@ -15,21 +15,14 @@
      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
      crossorigin=""/>
   
-  <!-- Load Leaflet JavaScript -->
-   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-     crossorigin=""></script>
-  
-  <!-- Load my custom stylesheet -->
+  <!-- Custom stylesheets and assets -->
    <link rel="stylesheet" href="css/styles.css">
-
-  <!-- Load my JavaScript file -->
-   <script src="js/main.js"></script>  
+   <link rel="icon" href="assets/favicon.ico">
 </head>
 
 <body>
   <header>
-    <h1>Boston parks, bike network, and neighborhoods</h1>
+    <h1>Boston neighborhoods, bike network, and park features</h1>
     <p>Simple Leaflet map showing park features, bike infrustructure, and neighborhood boundaries in Boston.</p>
   </header>
 
@@ -37,8 +30,15 @@
    <div id="map"></div>
     
   <footer>
-    <p>Data sources: <a href="https://gis.data.mass.gov/apps/massgis::city-of-boston-ma-gis-homepage/explore">City of Boston GIS hub</a>.</p>
+    <p>Data source: <a href="https://gis.data.mass.gov/apps/massgis::city-of-boston-ma-gis-homepage/explore">City of Boston GIS hub</a>.</p>
   </footer>
   
+  <!-- Load Leaflet JavaScript -->
+   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+     crossorigin=""></script>
+
+  <!-- Load my JavaScript file -->
+   <script src="js/main.js"></script>  
 </body>
 </html>

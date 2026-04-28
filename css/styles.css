@@ -1,3 +1,48 @@
-@import url('~simpledotcss/simple.min.css');
+/* Make the full page use the browser viewport */
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
 
-#map { height: 180px; }
+/* Override Simple.css max-width behavior */
+body {
+  max-width: none;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Keep the header compact */
+header {
+  padding: 1rem;
+}
+
+/* Let the map area expand to fill remaining screen space */
+main {
+  flex: 1;
+  padding: 0;
+}
+
+/* Leaflet map fills the available main area */
+#map {
+  height: 100%;
+  width: 100%;
+  border: none;
+  border-radius: 0;
+}
+
+/* Optional: keep footer small */
+footer {
+  padding: 0.5rem;
+  margin-top: 0;
+}
+
+@media (max-width: 700px) {
+  header h1 {
+    font-size: 1.6rem;
+  }
+
+  header p {
+    font-size: 0.95rem;
+  }
+}
