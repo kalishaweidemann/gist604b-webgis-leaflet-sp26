@@ -24,6 +24,13 @@ var neighborhoodsLayer = L.layerGroup().addTo(map);
 var bikeLayer = L.layerGroup().addTo(map);
 var parksLayer = L.layerGroup().addTo(map);
 
+// Set drawing order
+function enforceDrawOrder() {
+  neighborhoodsLayer.bringToBack();
+  bikeLayer.bringToFront();
+  parksLayer.bringToFront();
+}
+
 
 // Load neighborhood polygon features
 fetch('data/boston_neighborhoods_polygons.json')
@@ -65,6 +72,7 @@ fetch('data/boston_neighborhoods_polygons.json')
     }
 
     map.setMaxBounds(bostonBounds.pad(0.45));
+    enforceDrawOrder();
 
   });
 
@@ -96,8 +104,7 @@ fetch('data/boston_bike_network_lines.json')
       }
 
     }).addTo(bikeLayer);
-
-    bikeLayer.bringToFront();
+    enforceDrawOrder();
 
   });
 
@@ -128,7 +135,8 @@ fetch('data/boston_park_features_points.json')
         );
       }
 
-    }).addTo(parksLayer).bringToFront();
+    }).addTo(parksLayer);
+    enforceDrawOrder();
 
   });
 
