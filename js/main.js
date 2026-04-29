@@ -20,9 +20,10 @@ L.control.scale({
 
 
 // Create layer groups to organize datasets
-var neighborhoodsLayer = L.layerGroup().addTo(map);
-var bikeLayer = L.layerGroup().addTo(map);
 var parksLayer = L.layerGroup().addTo(map);
+var bikeLayer = L.layerGroup().addTo(map);
+var neighborhoodsLayer = L.layerGroup().addTo(map);
+
 
 // Set drawing order
 function enforceDrawOrder() {
@@ -160,9 +161,9 @@ legend.addTo(map);
 
 // Add collapsed layer controls
 var overlayMaps = {
-  'Neighborhood boundaries': neighborhoodsLayer,
+  'Park features': parksLayer,
   'Bike network': bikeLayer,
-  'Park features': parksLayer
+  'Neighborhood boundaries': neighborhoodsLayer  
 };
 
 L.control.layers(null, overlayMaps, {
