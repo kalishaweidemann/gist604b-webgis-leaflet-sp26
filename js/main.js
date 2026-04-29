@@ -149,10 +149,9 @@ legend.onAdd = function(map) {
   var div = L.DomUtil.create('div', 'legend');
 
   div.innerHTML =
-    '<div><span class="legend-box neighborhoods"></span> Neighborhood boundary</div>' +
+    '<div><span class="legend-circle parks"></span> Park feature</div>' +
     '<div><span class="legend-line bike"></span> Bike network</div>' +
-    '<div><span class="legend-circle parks"></span> Park feature</div>';
-
+    '<div><span class="legend-box neighborhoods"></span> Neighborhood boundary</div>';
   return div;
 };
 
