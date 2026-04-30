@@ -20,9 +20,9 @@ L.control.scale({
 
 
 // Create layer groups to organize datasets
-var parksLayer = L.layerGroup().addTo(map);
-var bikeLayer = L.layerGroup().addTo(map);
 var neighborhoodsLayer = L.layerGroup().addTo(map);
+var bikeLayer = L.layerGroup().addTo(map);
+var parksLayer = L.layerGroup().addTo(map);
 
 
 // Set drawing order
