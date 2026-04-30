@@ -20,17 +20,9 @@ L.control.scale({
 
 
 // Create layer groups to organize datasets
-var neighborhoodsLayer = L.layerGroup().addTo(map);
 var bikeLayer = L.layerGroup().addTo(map);
+var neighborhoodsLayer = L.layerGroup().addTo(map);
 var parksLayer = L.layerGroup().addTo(map);
-
-
-// Set drawing order
-function enforceDrawOrder() {
-  neighborhoodsLayer.bringToBack();
-  bikeLayer.bringToFront();
-  parksLayer.bringToFront();
-}
 
 
 // Load neighborhood polygon features
@@ -73,7 +65,6 @@ fetch('data/boston_neighborhoods_polygons.geojson')
     }
 
     map.setMaxBounds(bostonBounds.pad(0.45));
-    enforceDrawOrder();
 
   });
 
@@ -105,7 +96,6 @@ fetch('data/boston_bike_network_lines.geojson')
       }
 
     }).addTo(bikeLayer);
-    enforceDrawOrder();
 
   });
 
@@ -137,7 +127,6 @@ fetch('data/boston_park_features_points.geojson')
       }
 
     }).addTo(parksLayer);
-    enforceDrawOrder();
 
   });
 
